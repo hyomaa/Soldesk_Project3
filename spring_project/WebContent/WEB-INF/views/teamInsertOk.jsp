@@ -5,23 +5,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<
 
+<% int event = Integer.parseInt(request.getParameter("board_event")); %>
 
 <script type="text/javascript">
 
-<%
 
-int event = Integer.parseInt(request.getParameter("board_event"));
-%>
-	
+
 	
 	window.onload=function(){
 		setTimeout(function(){
-			alert("팀이 등록되었습니다");
+			alert("<%=event%>");
 			
-			
-			location.href="teamInfoList?board_event="+<%=event%>;
+		/* 	
+			location.href="teamInfoList?board_event=1"; */
 		},100);
 	}
 

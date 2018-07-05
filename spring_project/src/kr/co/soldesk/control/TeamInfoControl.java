@@ -74,7 +74,7 @@ public class TeamInfoControl {
 		teamInfoDAO.insertOne(teamInfoDTO);
 		
 		/*return "redirect:/soccerMain?board_event="+teamInfoDTO.getTeam_event()+"&board_category=1";*/
-		return "teamInsertOk?board_event"+teamInfoDTO.getTeam_event();
+		return "teamInsertOk?board_event="+teamInfoDTO.getTeam_event();
 	}
 	
 	
