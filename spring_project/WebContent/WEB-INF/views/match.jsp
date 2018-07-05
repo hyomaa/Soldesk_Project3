@@ -24,6 +24,8 @@ $(document).ready(function() {
 	var loc = "전체";
 	
 	
+	/* ${data}는  testclass에서 넘어옵니다 */
+	
 
 	$(".loc").click(function(){
 		
@@ -174,7 +176,7 @@ $(document).ready(function() {
 	}
 	
 
-	#matchdate{
+	#list_title{
 		width: 1000px;
 		float: left;
 		margin: 90px 0;
@@ -218,39 +220,110 @@ $(document).ready(function() {
 	
 	
 	
-	#listcontents{
+	
+	
+	.listcontents{
 		width: 700px;
 		height: 100px;
 		border-bottom: 1px solid gray;
 	
 	}
 	
-	#listleft {
+	
+	
+	.listleft {
 		width:230px;
 		height:100px;
-		background-color: yellow;
 		float:left;
 	
 	}
 	
-	#listmid{
+	
+	.teamname{
+		width:230px;
+		height: 60px;
+	
+		
+	}
+	
+	.teamname p{
+		font-size: 20px;
+		font-weight: bold;
+		margin: 0;
+		padding: 21.5px 0;
+		text-align: center;
+	}
+	
+	
+	.teamrecord p{
+	
+		font-weight: bold;
+		margin: 0;
+	  text-align: center;
+	
+		
+	}
+	
+	
+	
+	.listmid{
 		
 		width:300PX;
 		height:100px;
-		background-color: pink;
+		
 		float:left;
 	
 	}
 	
-	
-	#listright{
-		width:170px;
+	.matchdate{
+		width: 300px;
 		height:100px;
-		background-color: yellow;
-	float:left;
+		color:#3a87ad;
+	
 	}
 	
-
+	
+	.matchdate p{
+		margin: 0;
+		text-align: center;
+		font-size: 14px;
+		padding: 41px 0;
+	}
+	
+	
+	.listright{
+		width:170px;
+		height:100px;
+	
+		float:left;
+	}
+	
+	
+	.matchdetail {
+	
+		width: auto;
+		margin: 41px 0;
+		
+	
+	}
+	
+	.matchdetail span {
+		
+		padding: 8px;
+		font-weight: bold;
+		color: gray;
+		border: 2px solid gray;
+		margin: 0 38px;
+		text-align: center;
+		cursor: pointer;
+	
+	}
+	
+	
+	
+	a{
+		text-decoration: none;
+	}
 	
 
 	
@@ -266,7 +339,7 @@ $(document).ready(function() {
 	
 	
 	
-	 <form action="">  
+	 
 	 <div id="select_area">
 		 <p id="pp">지역별 검색</p>
 		 
@@ -292,7 +365,7 @@ $(document).ready(function() {
 	  <div id='calendar'></div>
 	  
 	  
-	  <div id="matchdate">
+	  <div id="list_title">
 	  	<h2>(날짜 넘어오는 부분)의 매치</h2>
 	  </div>
 	  
@@ -302,16 +375,34 @@ $(document).ready(function() {
 				<div id="listhead"><p>오늘의 매치</p></div>
 				
 				<!-- 매치 팀정보 들어가는 부분 -->
-				<div id="listcontents">
-					<div id="listleft"></div>
-					<div id="listmid"></div>
-					<div id="listright"></div>
+				<div class="listcontents">
+					<div class="listleft">
+						<div class="teamname"><p>테스트팀</p></div>
+						<div class="teamrecord"><p>10전 9승 0무 1패</p></div>
+					</div>
+					<div class="listmid">
+						<div class="matchdate"><p>2018.07.20 12:00 에 매치합시다</p></div>
+					</div>
+					<div class="listright">
+						<div class="matchdetail"><a href="matchDetail?매칭번호전달"><span>자세히 보기</span></a></div>
+					</div>
+				</div>
+				<div class="listcontents">
+					<div class="listleft">
+						<div class="teamname"><p>테스트팀</p></div>
+						<div class="teamrecord"><p>10전 9승 0무 1패</p></div>
+					</div>
+					<div class="listmid">
+						<div class="matchdate"><p>2018.07.20 12:00 에 매치합시다</p></div>
+					</div>
+					<div class="listright">
+						<div class="matchdetail"><a href="matchDetail"><span>자세히 보기</span></a></div>
+					</div>
 				</div>
 				
-			
 			</div>
+		
 		</div>
-		</form>
 	  
 
 	
