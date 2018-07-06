@@ -31,12 +31,34 @@
 	                return false;
 	            }
 	            
+	            
 	            // 비밀번호와 비밀번호 확인에 입력된 값이 동일한지 확인
 	            if(document.userInfo.user_pw.value != document.userInfo.user_rpw.value ){
 	                alert("비밀번호를 동일하게 입력하세요.");
 	                return false;
 	            }
 	        }	 */		
+	        
+	        
+	        
+	        $(function(){
+	        	
+	        	$("#re").click(function(){
+	        		
+	        		var id = $("#user_id").val();
+	        		
+	        		window.open("idPop?id="+id,"idCheck","width=500,height=100")
+	        		
+	        		
+	        	});	
+	        	
+	        	
+	        	
+	        	
+	        	
+	        });
+	        
+	        
 			</script>
 </head>
 

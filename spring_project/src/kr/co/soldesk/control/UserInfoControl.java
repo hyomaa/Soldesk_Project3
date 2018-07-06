@@ -122,7 +122,7 @@ public class UserInfoControl {
 	@RequestMapping("/logout")
 	public void logout(SessionStatus ss, HttpServletResponse resp) throws IOException {
 		ss.setComplete();
-	
+		
 		resp.sendRedirect("/spring_project/");
 	}
 	
@@ -200,6 +200,31 @@ public class UserInfoControl {
 		return "myPageModify";
 	}
 	
+	
+	@RequestMapping("/idPop")
+	public String idPop(HttpServletRequest req,Model model) {
+		
+		String id = req.getParameter("id");
+		
+		model.addAttribute("id", id);
+		
+		UserInfoDTO dto = (UserInfoDTO) userDao.selectOneById(id);
+		
+		if(dto != null) {
+			model.addAttribute("check", 0);
+		
+		}
+		
+		else
+			model.addAttribute("check", 1);
+			
+		
+		
+		
+		
+		
+		return "idCheck";
+	}
 	
 	
 	
