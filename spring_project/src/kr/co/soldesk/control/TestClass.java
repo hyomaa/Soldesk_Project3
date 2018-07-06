@@ -63,6 +63,12 @@ public class TestClass {
 		
 	}
 	
+	@RequestMapping("/matchDetail")
+	public String process() {
+		
+		return "matchDetail";
+	}
+	
 	
 
 }
