@@ -124,7 +124,7 @@
 	
 	<insert id="insertOneTeamInfo" parameterType="teamInfoDTO" >
 		insert into team_info
-		values (team_num_seq.nextval,#{team_name},#{team_location},#{team_event},0,'0전 0승0무0패', 0)
+		values (team_num_seq.nextval,#{team_name},#{team_location},#{team_event},1,'0전 0승0무0패', 0)
 	</insert>
 	
 	<update id="updateTeamInfo" parameterType="teamInfoDTO">
@@ -170,12 +170,17 @@
 	<!-- ===============MATCH REG===================== -->
 	<insert id="insertMatchReg" parameterType="matchRegDTO">
 		insert into match_reg
-		values (matchreg_num_seq.nextval, #{user_num}, #{stadium_num}, #{matchreg_event}, #{matchreg_date}, #{matchreg_time})
+		values (matchreg_num_seq.nextval, #{team_num} #{user_num}, #{stadium_num}, #{matchreg_event}, #{matchreg_date}, #{matchreg_time}, 0, 0, 0)
 	</insert>
 	
 	<select id="selectOneMatchReg" parameterType="int" resultType="matchRegDTO">
 		select * from match_reg
 		where matchreg_num = #{matchreg_num}
+	</select>
+	
+	<select id="selectOneMatchRegByTeam" parameterType="int" resultType="matchRegDTO">
+		select * from match_reg
+		where team_num = #{team_num}
 	</select>
 	
 	<select id="selectAllMatchReg" resultType="matchRegDTO">

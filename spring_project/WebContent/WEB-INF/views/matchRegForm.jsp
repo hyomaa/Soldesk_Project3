@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,10 +13,11 @@
 <form action="matchRegOk" method="post">
 	<table>
 		<tr>
-			<td>user_num</td>
 			<th>
 				<input type="hidden" name="user_num" id="" value="${loginUser.user_num }" />
-				<!-- <input type="text" name="user_num" id="" /> -->
+				<%-- <input type="hidden" name="team_num" id="" value="${loginUser.user_num }" /> --%>
+				
+				
 			</th>
 		</tr>
 		
@@ -23,6 +25,13 @@
 			<td>matchreg_stadium</td>
 			<th>
 				<input type="text" name="matchreg_stadium" id="" />
+			</th>
+		</tr>
+		
+		<tr>
+			<td>team_num</td>
+			<th>
+				<input type="text" name="team_num" id="" />
 			</th>
 		</tr>
 		

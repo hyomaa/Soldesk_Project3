@@ -21,6 +21,7 @@
 		 <c:forEach var="mt" items="${matchReg }"> 
 		<tr>
 			<td>매칭 번호 : <a href="matchDetail?matchreg_num=${mt.matchreg_num}">${mt.matchreg_num}</a></td>
+			<td>팀 번호 : ${mt.team_num }</td>
 			<td>유저 번호 : ${mt.user_num }</td>
 			<td>구장 번호 : ${mt.stadium_num }</td>
 			<td>종목 : ${mt.matchreg_event }</td>

@@ -1,19 +1,3 @@
-
-
-----sys계정에서 하기----------
-
-create user spring identified by soldesk;
-
-grant connect, resource to spring;
-
-
-conn spring;
-
-
-
-----spring 계정에서 하기---------------
-
-
 -- 회원정보
 CREATE TABLE User_Info (
 	USER_NUM      NUMBER         NOT NULL, -- 회원번호
@@ -45,7 +29,7 @@ ALTER TABLE User_Info
 
 -- 게시판
 CREATE TABLE Board (
-	BOARD_EVENT      VARCHAR2(20)   NOT NULL, -- 종목
+	BOARD_EVENT      NUMBER(1)      NOT NULL, -- 종목
 	BOARD_CATEGORY   NUMBER(2)      NOT NULL, -- 게시판분류
 	USER_NUM         NUMBER         NOT NULL, -- 회원번호
 	board_num        NUMBER         NOT NULL, -- 게시글번호
@@ -82,7 +66,7 @@ CREATE TABLE Team_Info (
 	TEAM_NUM      NUMBER       NOT NULL, -- 팀번호
 	team_name     VARCHAR2(50) NOT NULL, -- 팀명
 	team_location VARCHAR2(50) NOT NULL, -- 활동지역
-	team_event    VARCHAR2(20) NOT NULL, -- 종목
+	team_event    NUMBER(1)    NOT NULL, -- 종목
 	team_count    NUMBER(2)    NOT NULL, -- 팀원수
 	team_record   VARCHAR2(20) NOT NULL, -- 전적
 	team_score    NUMBER(5)    NOT NULL  -- 팀점수
@@ -107,7 +91,7 @@ CREATE TABLE Stadium (
 	STADIUM_NUM      NUMBER         NOT NULL, -- 경기장번호
 	stadium_name     VARCHAR2(100)  NOT NULL, -- 경기장명
 	stadium_location VARCHAR2(300)  NOT NULL, -- 경기장위치
-	stadium_event    VARCHAR2(20)   NOT NULL, -- 운영종목
+	stadium_event    NUMBER(1)      NOT NULL, -- 운영종목
 	stadium_tel      VARCHAR2(13)   NOT NULL, -- 연락처
 	stadium_date     VARCHAR2(20)   NOT NULL, -- 운영요일
 	stadium_time     VARCHAR2(50)   NOT NULL, -- 운영시간
@@ -128,44 +112,17 @@ ALTER TABLE Stadium
 			STADIUM_NUM -- 경기장번호
 		);
 
--- 매칭정보
-CREATE TABLE Match_Info (
-	MATCHREG_NUM     NUMBER       NOT NULL, -- 매칭등록번호
-	USER_NUM         NUMBER       NOT NULL, -- 회원번호
-	TEAM_NUM         NUMBER       NOT NULL, -- 팀번호
-	STADIUM_NUM      NUMBER       NOT NULL, -- 경기장번호
-	match_challenger VARCHAR2(50) NOT NULL, -- 신청팀명
-	match_champion   VARCHAR2(50) NOT NULL, -- 수락팀명
-	match_status     NUMBER(1)    NOT NULL, -- 상태
-	match_result     VARCHAR2(20) NOT NULL  -- 경기결과
+-- 신청팀정보
+CREATE TABLE Challenger_list (
+	match_challenger VARCHAR2(50) NULL -- 신청팀명
 );
-
--- 매칭정보 기본키
-CREATE UNIQUE INDEX PK_Match_Info
-	ON Match_Info ( -- 매칭정보
-		MATCHREG_NUM ASC, -- 매칭등록번호
-		USER_NUM     ASC, -- 회원번호
-		TEAM_NUM     ASC, -- 팀번호
-		STADIUM_NUM  ASC  -- 경기장번호
-	);
-
--- 매칭정보
-ALTER TABLE Match_Info
-	ADD
-		CONSTRAINT PK_Match_Info -- 매칭정보 기본키
-		PRIMARY KEY (
-			MATCHREG_NUM, -- 매칭등록번호
-			USER_NUM,     -- 회원번호
-			TEAM_NUM,     -- 팀번호
-			STADIUM_NUM   -- 경기장번호
-		);
 
 -- 팀등록
 CREATE TABLE Team_Reg (
 	TEAMREG_NUM     NUMBER       NOT NULL, -- 팀등록번호
 	USER_NUM        NUMBER       NOT NULL, -- 회원번호
 	TEAM_NUM        NUMBER       NOT NULL, -- 팀번호
-	teamreg_event   VARCHAR2(20) NOT NULL, -- 종목선택
+	teamreg_event   NUMBER(1)    NOT NULL, -- 종목선택
 	teamreg_positon VARCHAR2(20) NOT NULL  -- 포지션선택
 );
 
@@ -193,19 +150,23 @@ CREATE TABLE USER_DETAIL (
 
 -- 매칭등록
 CREATE TABLE Match_Reg (
-	MATCHREG_NUM    NUMBER       NOT NULL, -- 매칭등록번호
-	USER_NUM        NUMBER       NOT NULL, -- 회원번호
-	STADIUM_NUM     NUMBER       NOT NULL, -- 경기장번호
-	matchreg_event  VARCHAR2(20) NOT NULL, -- 종목
-	matchreg_date   DATE         NOT NULL, -- 매칭날짜
-	matchreg_time   VARCHAR2(20) NOT NULL, -- 경기시간
-	matchreg_status NUMBER(1)    NOT NULL  -- 상태
+	MATCHREG_NUM        NUMBER       NOT NULL, -- 매칭등록번호
+	TEAM_NUM            NUMBER       NOT NULL, -- 팀번호
+	USER_NUM            NUMBER       NOT NULL, -- 회원번호
+	STADIUM_NUM         NUMBER       NOT NULL, -- 경기장번호
+	matchreg_event      NUMBER(1)    NOT NULL, -- 종목
+	matchreg_date       DATE         NOT NULL, -- 매칭날짜
+	matchreg_time       VARCHAR2(20) NOT NULL, -- 경기시간
+	matchreg_status     NUMBER(1)    NOT NULL, -- 상태
+	matchreg_challenger VARCHAR2(50) NULL,     -- 상대팀명
+	matchreg_result     VARCHAR2(20) NULL      -- 경기결과
 );
 
 -- 매칭등록 기본키
 CREATE UNIQUE INDEX PK_Match_Reg
 	ON Match_Reg ( -- 매칭등록
 		MATCHREG_NUM ASC, -- 매칭등록번호
+		TEAM_NUM     ASC, -- 팀번호
 		USER_NUM     ASC, -- 회원번호
 		STADIUM_NUM  ASC  -- 경기장번호
 	);
@@ -216,6 +177,7 @@ ALTER TABLE Match_Reg
 		CONSTRAINT PK_Match_Reg -- 매칭등록 기본키
 		PRIMARY KEY (
 			MATCHREG_NUM, -- 매칭등록번호
+			TEAM_NUM,     -- 팀번호
 			USER_NUM,     -- 회원번호
 			STADIUM_NUM   -- 경기장번호
 		);
@@ -233,32 +195,6 @@ ALTER TABLE Board
 		)
 		REFERENCES User_Info ( -- 회원정보
 			USER_NUM -- 회원번호
-		);
-
--- 매칭정보
-ALTER TABLE Match_Info
-	ADD
-		CONSTRAINT FK_Match_Reg_TO_Match_Info -- 매칭등록 -> 매칭정보
-		FOREIGN KEY (
-			MATCHREG_NUM, -- 매칭등록번호
-			USER_NUM,     -- 회원번호
-			STADIUM_NUM   -- 경기장번호
-		)
-		REFERENCES Match_Reg ( -- 매칭등록
-			MATCHREG_NUM, -- 매칭등록번호
-			USER_NUM,     -- 회원번호
-			STADIUM_NUM   -- 경기장번호
-		);
-
--- 매칭정보
-ALTER TABLE Match_Info
-	ADD
-		CONSTRAINT FK_Team_Info_TO_Match_Info -- 팀정보 -> 매칭정보
-		FOREIGN KEY (
-			TEAM_NUM -- 팀번호
-		)
-		REFERENCES Team_Info ( -- 팀정보
-			TEAM_NUM -- 팀번호
 		);
 
 -- 팀등록
@@ -303,6 +239,17 @@ ALTER TABLE Match_Reg
 		)
 		REFERENCES Stadium ( -- 경기장정보
 			STADIUM_NUM -- 경기장번호
+		);
+
+-- 매칭등록
+ALTER TABLE Match_Reg
+	ADD
+		CONSTRAINT FK_Team_Info_TO_Match_Reg -- 팀정보 -> 매칭등록
+		FOREIGN KEY (
+			TEAM_NUM -- 팀번호
+		)
+		REFERENCES Team_Info ( -- 팀정보
+			TEAM_NUM -- 팀번호
 		);
 
 

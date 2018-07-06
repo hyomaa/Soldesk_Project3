@@ -34,9 +34,8 @@ public class MatchRegControl {
 	public String processStep2(@ModelAttribute MatchRegDTO matchRegDTO, HttpServletRequest req, Model model) {
 		matchRegDAO.insertOne(matchRegDTO);
 		
-		
-		//UserInfoDTO dto = (UserInfoDTO) req.getSession().getAttribute("loginUser");
-
+		int m_event = Integer.parseInt(req.getParameter("m_select"));
+		matchRegDTO.setMatchreg_event(m_event);
 		
 		//model.addAttribute("matchReg", matchRegDAO.selectOne(matchRegDTO.getMatchreg_num()));
 		model.addAttribute("matchReg", matchRegDAO.selectAll());
