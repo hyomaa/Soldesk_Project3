@@ -6,12 +6,12 @@ public class UserInfoDTO {
 	private String user_id;
 	private String user_pw;
 	private String user_name;
-	private String user_nickname;
+	private String user_nicname;
 	private String user_grade;
 	private String user_phone;
 	private String user_birth;
-	private String user_loc;
-	private String user_prof;
+	private String user_location;
+	private String user_profile;
 	private String user_regdate;
 
 	
@@ -19,19 +19,19 @@ public class UserInfoDTO {
 		super();
 	}
 
-	public UserInfoDTO(int user_num, String user_id, String user_pw, String user_name, String user_nickname,
-			String user_grade, String user_phone, String user_birth, String user_loc, String user_prof, String user_regdate) {
+	public UserInfoDTO(int user_num, String user_id, String user_pw, String user_name, String user_nicname,
+			String user_grade, String user_phone, String user_birth, String user_location, String user_profile, String user_regdate) {
 		super();
 		this.user_num = user_num;
 		this.user_id = user_id;
 		this.user_pw = user_pw;
 		this.user_name = user_name;
-		this.user_nickname = user_nickname;
+		this.user_nicname = user_nicname;
 		this.user_grade = user_grade;
 		this.user_phone = user_phone;
 		this.user_birth = user_birth;
-		this.user_loc = user_loc;
-		this.user_prof = user_prof;
+		this.user_location = user_location;
+		this.user_profile = user_profile;
 		this.user_regdate = user_regdate;
 	}
 
@@ -67,12 +67,12 @@ public class UserInfoDTO {
 		this.user_name = user_name;
 	}
 
-	public String getUser_nickname() {
-		return user_nickname;
+	public String getUser_nicname() {
+		return user_nicname;
 	}
 
-	public void setUser_nickname(String user_nickname) {
-		this.user_nickname = user_nickname;
+	public void setUser_nicname(String user_nicname) {
+		this.user_nicname = user_nicname;
 	}
 
 	public String getUser_grade() {
@@ -99,20 +99,20 @@ public class UserInfoDTO {
 		this.user_birth = user_birth;
 	}
 
-	public String getUser_loc() {
-		return user_loc;
+	public String getUser_location() {
+		return user_location;
 	}
 
-	public void setUser_loc(String user_loc) {
-		this.user_loc = user_loc;
+	public void setUser_loc(String user_location) {
+		this.user_location = user_location;
 	}
 
-	public String getUser_prof() {
-		return user_prof;
+	public String getUser_profile() {
+		return user_profile;
 	}
 
-	public void setUser_prof(String user_prof) {
-		this.user_prof = user_prof;
+	public void setUser_prof(String user_profile) {
+		this.user_profile = user_profile;
 	}
 
 	public String getUser_regdate() {

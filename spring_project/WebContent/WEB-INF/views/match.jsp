@@ -400,6 +400,20 @@ $(document).ready(function() {
 					</div>
 				</div>
 				
+				<!-- 목록 출력 테스트(현명 추가) -->
+				<div class="listcontents">
+					<div class="listleft">
+						<div class="teamname"><p>팀 번호 확인 : ${selectOneMatchReg.team_num }</p></div>
+						<div class="teamrecord"><p>구장번호 확인 : ${selectOneMatchReg.stadium_num }</p></div>
+					</div>
+					<div class="listmid">
+						<div class="matchdate"><p>날짜 확인 : ${selectOneMatchReg.matchreg_date } 시간 : ${selectOneMatchReg.matchreg_time }</p></div>
+					</div>
+					<div class="listright">
+						<div class="matchdetail"><a href="matchDetail"><span>자세히 보기</span></a></div>
+					</div>
+				</div>
+				
 			</div>
 		
 		</div>

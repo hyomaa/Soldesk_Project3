@@ -30,18 +30,20 @@ public class MatchRegControl {
 		return "matchRegForm"; 
 	}
 	
-	@RequestMapping("/matchRegOk")
+	@RequestMapping("/matchBoard")
 	public String processStep2(@ModelAttribute MatchRegDTO matchRegDTO, HttpServletRequest req, Model model) {
-		matchRegDAO.insertOne(matchRegDTO);
+		/*int m_event = Integer.parseInt(req.getParameter("m_select"));
+		System.out.println(m_event);
+		matchRegDTO.setMatchreg_event(m_event);*/
 		
-		int m_event = Integer.parseInt(req.getParameter("m_select"));
-		matchRegDTO.setMatchreg_event(m_event);
+		//matchRegDAO.insertOne(matchRegDTO);
 		
-		//model.addAttribute("matchReg", matchRegDAO.selectOne(matchRegDTO.getMatchreg_num()));
-		model.addAttribute("matchReg", matchRegDAO.selectAll());
+		//model.addAttribute("insertMatchReg", matchRegDAO.selectAll());
+		//model.addAttribute("insertMatchReg", matchRegDAO.selectOne(matchRegDTO.getMatchreg_num()));
+		model.addAttribute("selectOneMatchReg", matchRegDAO.selectOne(3));
 		
 		
-		return "matchRegOk";
+		return "match";
 	}
 	
 }

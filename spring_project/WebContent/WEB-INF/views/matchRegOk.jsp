@@ -18,7 +18,7 @@
 			<th>매치글</th>
 		</tr>
 	
-		 <c:forEach var="mt" items="${matchReg }"> 
+		<c:forEach var="mt" items="${insertMatchReg }"> 
 		<tr>
 			<td>매칭 번호 : <a href="matchDetail?matchreg_num=${mt.matchreg_num}">${mt.matchreg_num}</a></td>
 			<td>팀 번호 : ${mt.team_num }</td>
@@ -27,7 +27,7 @@
 			<td>종목 : ${mt.matchreg_event }</td>
 		</tr>
 		
-		</c:forEach> 
+		</c:forEach>
 	
 	</table>
 

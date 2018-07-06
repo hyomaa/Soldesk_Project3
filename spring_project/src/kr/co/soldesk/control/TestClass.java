@@ -27,7 +27,7 @@ public class TestClass {
 		matchRegDAO = match_RegDAO;
 	}
 
-	@RequestMapping("/matchBoard")
+	@RequestMapping("/matchBoard5")
 	public String processStep1(Model model, HttpServletRequest req) {
 		
 			String loc = req.getParameter("loc");
@@ -59,7 +59,7 @@ public class TestClass {
 	        model.addAttribute("data", list);
 			
 	        System.out.println(list);
-			return "match";
+			return "match5";
 		
 	}
 	

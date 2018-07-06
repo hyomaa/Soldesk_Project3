@@ -170,7 +170,7 @@
 	<!-- ===============MATCH REG===================== -->
 	<insert id="insertMatchReg" parameterType="matchRegDTO">
 		insert into match_reg
-		values (matchreg_num_seq.nextval, #{team_num} #{user_num}, #{stadium_num}, #{matchreg_event}, #{matchreg_date}, #{matchreg_time}, 0, 0, 0)
+		values (matchreg_num_seq.nextval, #{team_num}, #{user_num}, #{stadium_num}, #{matchreg_event}, #{matchreg_date}, #{matchreg_time}, 0, 0, 0)
 	</insert>
 	
 	<select id="selectOneMatchReg" parameterType="int" resultType="matchRegDTO">
