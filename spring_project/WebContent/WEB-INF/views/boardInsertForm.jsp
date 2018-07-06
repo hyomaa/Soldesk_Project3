@@ -11,7 +11,22 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/menu.css" />
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
-
+<style type="text/css">
+ 
+  .im{
+  
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  }
+  .imlist{
+  margin-left: 10px;
+  }
+  .imlist a{
+  padding: 0;
+  }
+ 
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function sendData(){
@@ -50,7 +65,10 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="logout">로그아웃</a>
             </li>
-           
+             <li class="imlist"><a href="soccerMain?board_event=1&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/soccerball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=2&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/jokguball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=3&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/baseball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=4&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/Volleyball.jpg"></a></li>
             
          </ul> 
         </c:if> 
@@ -65,6 +83,10 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="insert">회원가입</a>
             </li>
+              <li class="imlist"><a href="soccerMain?board_event=1&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/soccerball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=2&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/jokguball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=3&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/baseball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=4&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/Volleyball.jpg"></a></li>
          </ul>
            </c:if>  
       </div>
@@ -101,7 +123,7 @@
                <li class="dropdown">
                		<a href="#" class="dropbtn">매치보드</a>
                		<div class="dropdown-sub">
-                       <a href="#">매치신청</a>   
+                      <a href="#">매치신청</a>   
                    </div>
                </li>
                <li class="dropdown">
@@ -127,8 +149,7 @@
 	    <div id="boardlist">
 	     	
 	     <c:choose>
-      	
-	      	<c:when test= "${param.category == 1}">
+      		<c:when test= "${param.category == 1}">
 	      		<h3>공지사항</h3>
 	      	</c:when>
 	        <c:when test= "${param.category == 2}">
@@ -140,7 +161,6 @@
 	      	<c:when test= "${param.category == 4}">
 	      		<h3>모집게시판</h3>
 	      	</c:when>
-      	
       	</c:choose>
 	     
 	    </div>

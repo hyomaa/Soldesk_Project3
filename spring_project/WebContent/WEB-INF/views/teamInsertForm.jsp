@@ -39,12 +39,32 @@
 	            }
 	        }	 */		
 			</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	
+	$("#regbtn").on('click', function(){
+		if(confirm("팀을 등록하시겠습니까?") == true){
+			document.frm.submit();
+		} else {
+			return;
+			
+		}
+		
+	});
+});
+
+</script>
+			
+			
 </head>
 <body>
 
 	
 	
-	<form action="teamInsertOk" method="post">
+	<form action="teamInsertOk" name="frm" >
 	<div id="wrapper">
 		<div class="top_write" style="padding: 0 0 30px 0;">
 			<h1 style="text-align: center; color: #444;">팀등록</h1>
@@ -124,7 +144,7 @@
 			
 				<div style="width: 100%;">
 						<div style="padding: 10px 0 0 0; position: relative; width: 410px; margin: 0 auto;">						
-							<input type="submit" value="확인" style="text-align: center; width: 45%; max-width: 180px; line-height: 40px; height: 40px; color: #fff; background: #444; font-size: 1.2em; border: 1px solid #444;" id="sub"/>
+							<input type="button" id="regbtn" value="확인" style="text-align: center; width: 45%; max-width: 180px; line-height: 40px; height: 40px; color: #fff; background: #444; font-size: 1.2em; border: 1px solid #444;" id="sub"/>
 							<div id="res" style=" text-align: center; width: 45%; max-width: 180px; line-height: 39px; height: 40px; color: #fff; background: #444; font-size: 1.2em; border: 1px solid #444; cursor: pointer; vertical-align: top; display: inline-block; height: 38px;">취소</div>							
 						</div>
 				</div>		 

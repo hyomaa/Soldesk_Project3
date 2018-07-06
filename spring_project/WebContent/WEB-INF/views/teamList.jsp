@@ -25,6 +25,23 @@
     background-color: #008CBA;
     color: white;
 	}
+	
+
+  .im{
+  
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  }
+  .imlist{
+  margin-left: 10px;
+  }
+  .imlist a{
+  padding: 0;
+  }
+
+	
+
 </style>	
 <script type="text/javascript">
 
@@ -55,14 +72,17 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="logout">로그아웃</a>
             </li>
-           
+              <li class="imlist"><a href="soccerMain?board_event=1&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/soccerball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=2&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/jokguball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=3&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/baseball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=4&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/Volleyball.jpg"></a></li>
             
          </ul> 
         </c:if> 
         <c:if test="${empty loginUser.user_id}">    
          <ul>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">홈</a>
+              <a class="nav-link js-scroll-trigger" href="./">홈</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="login">로그인</a>
@@ -70,6 +90,10 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="insert">회원가입</a>
             </li>
+               <li class="imlist"><a href="soccerMain?board_event=1&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/soccerball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=2&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/jokguball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=3&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/baseball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=4&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/Volleyball.jpg"></a></li>
          </ul>
            </c:if>  
       </div>
@@ -105,7 +129,7 @@
                <li class="dropdown">
                		<a href="#" class="dropbtn">매치보드</a>
                		<div class="dropdown-sub">
-                       <a href="#">매치신청</a>   
+                       <a href="matchBoard">매치신청</a>  
                    </div>
                </li>
                <li class="dropdown">

@@ -122,7 +122,7 @@ public class UserInfoControl {
 	@RequestMapping("/logout")
 	public void logout(SessionStatus ss, HttpServletResponse resp) throws IOException {
 		ss.setComplete();
-		
+	
 		resp.sendRedirect("/spring_project/");
 	}
 	

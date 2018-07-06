@@ -46,7 +46,7 @@ public class TeamRegControl {
 
 	@RequestMapping("/teamReg")
 	public String processStep1(Model model, HttpServletRequest req) {
-	
+		int no = Integer.parseInt(req.getParameter("teamevent"));
 		int team_num = Integer.parseInt(req.getParameter("teamno"));
 		UserInfoDTO userdto = (UserInfoDTO) req.getSession().getAttribute("loginUser");
 		
@@ -55,7 +55,7 @@ public class TeamRegControl {
 		TeamRegDTO dto = new TeamRegDTO();
 		
 		dto.setTeam_num(team_num);
-		dto.setTeamreg_event(3);
+		dto.setTeamreg_event(no);
 		dto.setUser_num(userdto.getUser_num());
 		
 		model.addAttribute("teamreg", dto);

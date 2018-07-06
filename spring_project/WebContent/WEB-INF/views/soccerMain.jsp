@@ -7,6 +7,20 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title></title>
+  <style type="text/css">
+  .im{
+  
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  }
+  .imlist{
+  margin-left: 10px;
+  }
+  .imlist a{
+  padding: 0;
+  }
+  </style>
   <!-- Bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/menu.css" />
@@ -37,8 +51,12 @@
               <a class="nav-link js-scroll-trigger" href="myPage">마이페이지</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="logOut">로그아웃</a>
+              <a class="nav-link js-scroll-trigger" href="logout">로그아웃</a>
             </li>
+             <li class="imlist"><a href="soccerMain?board_event=1&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/soccerball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=2&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/jokguball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=3&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/baseball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=4&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/Volleyball.jpg"></a></li>
            
             
          </ul> 
@@ -46,7 +64,7 @@
            <c:if test="${empty loginUser.user_id}">
          <ul>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">홈</a>
+              <a class="nav-link js-scroll-trigger" href="./">홈</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="login">로그인</a>
@@ -54,6 +72,11 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="insert">회원가입</a>
             </li>
+            <li class="imlist"><a href="soccerMain?board_event=1&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/soccerball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=2&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/jokguball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=3&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/baseball.jpg"></a></li>
+            <li class="imlist"><a href="soccerMain?board_event=4&board_category=1"><img class="im" src="resources/img/portfolio/thumbnails/Volleyball.jpg"></a></li>
+   
          </ul>
            </c:if> 
       </div> 
@@ -169,7 +192,7 @@
 	  		</div>
 	  	</div>
   	</section>
-  	
+ <!--  	
   	<section class="section02">
   		<div class="websize">
 
@@ -191,7 +214,7 @@
   	</div>
   	
   	
-  </section>
+  </section> -->
   </div>
   </div>
 </body>
