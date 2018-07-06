@@ -5,6 +5,7 @@
   
 <mapper namespace=" ">
 
+	
 	<!--==================== userInfo=======================  -->
 	
 	<select id="selectAllUserInfo" resultType="userDTO" >
@@ -23,14 +24,14 @@
 	
 	<insert id="insertOneUserInfo" parameterType="userDTO" >
 		insert into user_info
-		values (user_num_seq.nextval,#{user_id},#{user_pw},#{user_name},#{user_nickname},
-		#{user_grade},#{user_phone},#{user_birth},#{user_loc},#{user_prof},sysdate)
+		values (user_num_seq.nextval,#{user_id},#{user_pw},#{user_name},#{user_nicname},
+		#{user_grade},#{user_phone},#{user_birth},#{user_location},#{user_profile},sysdate)
 	</insert>
 	
 	
 	<update id="updateUserInfo" parameterType="userDTO">
 		update user_info
-		set user_nickname = #{user_nickname}, user_pw = #{user_pw}
+		set user_nicname = #{user_nickname}, user_pw = #{user_pw}
 		where user_num = #{user_num}
 	</update>
 	
@@ -70,13 +71,13 @@
 	
 	<insert id="insertOneBoard" parameterType="boardDTO" >
 		insert into board
-		values (#{board_event},#{board_category},#{board_title},#{board_writer},#{board_contents},
-		'img', 0, 0, 0,1,board_num_seq.nextval,sysdate)
+		values (#{board_event},#{board_category},#{user_num},board_num_seq.nextval,#{board_title},#{board_writer},sysdate,
+		#{board_contents},#{board_image}, 0, 0, 0)
 	</insert>
 	
 	<update id="updateBoard" parameterType="boardDTO">
 		update board
-		set board_title = #{board_title}, board_contents = #{board_contents}
+		set board_title = #{board_title}, board_contents = #{board_contents}, board_date=sysdate
 		where board_num = #{board_num}
 	</update>
 	
@@ -85,9 +86,6 @@
 		where board_num = #{board_num}
 	</delete>
 	
-	
-	
-
 	<!-- ================TEAM INFO ========================= -->
 
 	<select id="selectAllTeamInfo" resultType="teamInfoDTO" >

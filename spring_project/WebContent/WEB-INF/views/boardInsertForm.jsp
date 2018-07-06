@@ -44,12 +44,6 @@
 </head>
 <body>
 	
-	<%
-	
-	String event = request.getParameter("board_event");
-	int category = Integer.parseInt(request.getParameter("category"));
-	%>
-	
 
 
    <div id="top">
@@ -95,16 +89,16 @@
       	<c:choose>
 	      	
 	      
-		    <c:when test= "${param.board_event == '1'}">
+		    <c:when test= "${board_event == '1'}">
 	      	<img src="./resources/img/soccer.jpg" alt="" />
 	      	</c:when>
-	      	<c:when test= "${param.board_event == '2'}">
+	      	<c:when test= "${board_event == '2'}">
 	      	<img src="./resources/img/footvolleyball.jpg" alt="" />
 	      	</c:when>
-	      	<c:when test= "${param.board_event == '3'}">
+	      	<c:when test= "${board_event == '3'}">
 	      	<img src="./resources/img/basketball.jpg" alt="" />
 	      	</c:when>
-	      	<c:when test= "${param.board_event == '4'}">
+	      	<c:when test= "${board_event == '4'}">
 	      	<img src="./resources/img/volleyball.jpg" alt="" />
 	      	</c:when>
       	
@@ -116,8 +110,8 @@
               <li class="dropdown">
                     <a href="#" class="dropbtn">팀</a>
                     <div class="dropdown-sub">
-              	 	 <a href="teamInfoList?board_event=<%=event %>">팀정보</a>
-              	 	<a href="teamInsert?board_event=<%=event %>">팀생성</a>
+              	 	 <a href="teamInfoList?board_event=${board_event }">팀정보</a>
+              	 	<a href="teamInsert?board_event=${board_event }">팀생성</a>
               	 	 </div> 
               </li>
                <li class="dropdown">
@@ -129,16 +123,16 @@
                <li class="dropdown">
                    <a href="#" class="dropbtn">커뮤니티</a>
                    <div class="dropdown-sub">
-                  	    <a href="boardList?board_event=<%=event %>&board_category=1">공지사항</a>
-                        <a href="boardList?board_event=<%=event %>&board_category=2">자유게시판</a>
-                        <a href="boardList?board_event=<%=event %>&board_category=3">팀가입인사</a>
-                        <a href="boardList?board_event=<%=event %>&board_category=4">팀모집게시판</a>
+                  	    <a href="boardList?board_event=${board_event }&board_category=1">공지사항</a>
+                        <a href="boardList?board_event=${board_event }&board_category=2">자유게시판</a>
+                        <a href="boardList?board_event=${board_event }&board_category=3">팀가입인사</a>
+                        <a href="boardList?board_event=${board_event }&board_category=4">팀모집게시판</a>
                    </div>
                </li>
                <li class="dropdown">
                    <a href="#" class="dropbtn">경기장</a>
                    <div class="dropdown-sub">
-                        <a href="stadiumList?board_event=<%=event %>">경기장안내</a>               
+                        <a href="stadiumList?board_event=${board_event }">경기장안내</a>               
                    </div>
                </li>
            </ul>
@@ -149,16 +143,16 @@
 	    <div id="boardlist">
 	     	
 	     <c:choose>
-      		<c:when test= "${param.category == 1}">
+      		<c:when test= "${board_category == 1}">
 	      		<h3>공지사항</h3>
 	      	</c:when>
-	        <c:when test= "${param.category == 2}">
+	        <c:when test= "${board_category == 2}">
 	      		<h3>자유게시판</h3>
 	      	</c:when>
-	      	<c:when test= "${param.category == 3}">
+	      	<c:when test= "${board_category == 3}">
 	      		<h3>팀가입인사</h3>
 	      	</c:when>
-	      	<c:when test= "${param.category == 4}">
+	      	<c:when test= "${board_category == 4}">
 	      		<h3>모집게시판</h3>
 	      	</c:when>
       	</c:choose>
@@ -171,8 +165,9 @@
 
 	<table class="table table-bordered">
       <form action="boardInsertOk" method="post" encType="multiplart/form-data">
-        <input type="hidden" name="board_event" value="<%=event %>" />
-        <input type="hidden" name="board_writer" value="${loginUser.user_id}" />
+        <input type="hidden" name="board_event" value="${board_event }" />
+        <input type="hidden" name="board_writer" value="${loginUser.user_name}" />
+        <input type="hidden" name="user_num"  value="${loginUser.user_num}"/>
         	<tr>
         		<th>종류 : </th>
         		<td>
@@ -227,7 +222,7 @@
                 <td colspan="2">
                     <input type="submit" value="등록"  class="pull-right" />
                     <input type="button" value="reset" class="pull-left"/>
-                    <input type="button" value="목록"  class="mybtn" onclick="javascript:location.href='boardList?board_category=<%=category%>&board_event=<%=event%>'"/>
+                    <input type="button" value="목록"  class="mybtn" onclick="javascript:location.href='boardList?board_category=${board_category }&board_event=${board_event }'"/>
                 </td>
             </tr>
         </form>

@@ -118,7 +118,7 @@
 			<div style="border-bottom: 1px solid #d5d5d5; height: 54px; width: 1045px; margin: 0 auto;">
 				<label style="font-size: 1.05em; position: relative; top: 13px;">닉네임</label>
 				<span style="color: red; position: relative; top: 13px;">*</span>
-				<input type="text" name="user_nickname" id="user_nickname" style="font: 400 13.3333px Arial; width: 415px; height: 23px; position: relative; top: 11px; left: 100px;" maxlength="50" required="required"/>
+				<input type="text" name="user_nicname" id="user_nickname" style="font: 400 13.3333px Arial; width: 415px; height: 23px; position: relative; top: 11px; left: 100px;" maxlength="50" required="required"/>
 				<div style="color: white; background-color: #555; border: 1px solid #333; width: 78px; height: 28px; font-size: 1em; text-align: center; position:relative; top: -20px; left: 600px; cursor: pointer;">														
 					중복검사
 				</div>
@@ -233,7 +233,7 @@
 					<!-- 지역 -->
 					<div style="border-bottom: 1px solid #d5d5d5; height: 54px; width: 1045px; margin: 0 auto;"> 
 						<label for="join_ca1" style="font-size: 1.05em; position: relative; top: 13px;">지역</label>			
-						<select name="user_loc" id="user_loc" class="join_input" style="font: 400 13.3333px Arial; width: 100px; height: 23px; position: relative; top: 11px; left: 128px;" maxlength="50" required="required"><option value="">:: 선택 ::</option>					
+						<select name="user_location" id="user_loc" class="join_input" style="font: 400 13.3333px Arial; width: 100px; height: 23px; position: relative; top: 11px; left: 128px;" maxlength="50" required="required"><option value="">:: 선택 ::</option>					
 								<option value="1/">:: 서울 ::</option>
 								<option value="2/">:: 경기 ::</option>
 								<option value="3/">:: 강원 ::</option>
@@ -269,7 +269,7 @@
 					<!-- 프로필사진 -->
 					<div style="border-bottom: 1px solid #d5d5d5; height: 54px; width: 1045px; margin: 0 auto;">
 						<label style="font-size: 1.05em; position: relative; top: 13px;">프로필사진</label>						
-						<input type="file" name="user_prof" id="user_prof" style="font: 400 13.3333px Arial; width: 100px; height: 23px; position: relative; top: 11px; left: 75px; width: 340px; border: 2px solid #d5d5d5;" maxlength="50" required="required"/>												
+						<input type="file" name="user_profile" id="user_prof" style="font: 400 13.3333px Arial; width: 100px; height: 23px; position: relative; top: 11px; left: 75px; width: 340px; border: 2px solid #d5d5d5;" maxlength="50" required="required"/>												
 					</div>
 					<div style="width: 100%;">
 						<div style="padding: 10px 0 0 0; position: relative; width: 410px; margin: 0 auto;">						
