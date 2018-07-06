@@ -78,7 +78,7 @@ public class BoardControl {
 		String board_event = req.getParameter("board_event");
 		String board_category = req.getParameter("board_category");
 		
-		int event = Integer.parseInt(board_category);
+		int event = Integer.parseInt(board_event);
 		int category = Integer.parseInt(board_category);
 	
 		BoardDTO boardDTO = new BoardDTO();
@@ -142,17 +142,25 @@ public class BoardControl {
 	
 	
 	@RequestMapping("/boardInsertOk")
-	public void processStep2(@ModelAttribute BoardDTO boardDTO,HttpServletRequest req,HttpServletResponse resp) throws IOException {
+	public void processStep2(@ModelAttribute BoardDTO boardDTO,HttpServletRequest req,HttpServletResponse resp,Model model) throws IOException {
 			
 			String u = req.getParameter("user_num");
+			String e = req.getParameter("board_event");
+			String c = req.getParameter("board_category");
+			
+			
 			int usernum = Integer.parseInt(u);
+			int event = Integer.parseInt(e);
+			int cate = Integer.parseInt(c);
+			
 			boardDTO.setUser_num(usernum);
+			boardDTO.setBoard_category(cate);
+			boardDTO.setBoard_event(event);
 		
 			boardDAO.insertOne(boardDTO);
-			req.setAttribute("board_event", boardDTO.getBoard_event());
-			req.setAttribute("board_category", boardDTO.getBoard_category());
+		
 			
-			resp.sendRedirect("boardList");
+			resp.sendRedirect("/spring_project/boardList?board_event="+e+"&board_category="+c);
 			
 		}
 		
