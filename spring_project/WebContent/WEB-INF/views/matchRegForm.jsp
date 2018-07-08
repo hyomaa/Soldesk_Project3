@@ -132,8 +132,8 @@
 <div class="container">
 
 
-      <form action="matchRegOk" method="post">
-        <input type="hidden" name="user_num" id="" value="1" />
+      <form action="matchBoard" method="post">
+        <input type="hidden" name="user_num" id="" value="${loginUser.user_num}" />
         <input type="hidden" name="team_num" id="" value="1" />	
 	<table class="table table-bordered">
        

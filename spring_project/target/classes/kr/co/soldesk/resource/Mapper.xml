@@ -25,7 +25,7 @@
 	<insert id="insertOneUserInfo" parameterType="userDTO" >
 		insert into user_info
 		values (user_num_seq.nextval,#{user_id},#{user_pw},#{user_name},#{user_nicname},
-		#{user_grade},#{user_phone},#{user_birth},#{user_location},#{user_profile},sysdate)
+		1,#{user_phone},#{user_birth},#{user_location},#{user_profile},sysdate)
 	</insert>
 	
 	

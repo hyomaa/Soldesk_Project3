@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -401,18 +402,20 @@ $(document).ready(function() {
 				</div>
 				
 				<!-- 목록 출력 테스트(현명 추가) -->
+				<c:forEach var="mt" items="${MatchReg }">
 				<div class="listcontents">
 					<div class="listleft">
-						<div class="teamname"><p>팀 번호 확인 : ${selectOneMatchReg.team_num }</p></div>
-						<div class="teamrecord"><p>구장번호 확인 : ${selectOneMatchReg.stadium_num }</p></div>
+						<div class="teamname"><p>팀 번호 확인 : ${mt.team_num }</p></div>
+						<div class="teamrecord"><p>종목 확인 : ${mt.matchreg_event }</p></div>
 					</div>
 					<div class="listmid">
-						<div class="matchdate"><p>날짜 확인 : ${selectOneMatchReg.matchreg_date } 시간 : ${selectOneMatchReg.matchreg_time }</p></div>
+						<div class="matchdate"><p>날짜 확인 : ${mt.matchreg_date } 시간 : ${mt.matchreg_time }</p></div>
 					</div>
 					<div class="listright">
 						<div class="matchdetail"><a href="matchDetail"><span>자세히 보기</span></a></div>
 					</div>
 				</div>
+				</c:forEach>
 				
 			</div>
 		
