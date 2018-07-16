@@ -29,10 +29,9 @@
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-	function sendData(){
-		
-		
-	};
+	function prt(){
+		alert("매치 등록이 완료되었습니다.");
+	}
 
 	
 </script>
@@ -132,9 +131,9 @@
 <div class="container">
 
 
-      <form action="matchBoard" method="post">
+      <form action="matchRegOk" method="post">
         <input type="hidden" name="user_num" id="" value="${loginUser.user_num}" />
-        <input type="hidden" name="team_num" id="" value="1" />	
+        <input type="hidden" name="team_num" id="" value="8" />	
 	<table class="table table-bordered">
        
         	<tr>
@@ -171,7 +170,7 @@
            
             <tr>
                 <td colspan="4">
-                    <input type="submit" value="등록"  class="pull-right" />
+                    <input type="submit" value="등록"  class="pull-right" onclick="prt()"/>
                     <input type="button" value="reset" class="pull-left"/>
                     <input type="button" value="목록"  class="mybtn" onclick="javascript:location.href='boardList?board_category=카테고리&board_event=이벤트'"/>
                 </td>

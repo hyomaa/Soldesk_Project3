@@ -60,6 +60,9 @@ public class TeamInfoDAO implements DAO,TeamInfoImple{
 	public List<TeamInfoDTO> myTeamInfo(int no) {
 		return ss.selectList("selectMyTeamInfo",no);
 	}
+	
+	
+
 
 
 
@@ -84,6 +87,14 @@ public class TeamInfoDAO implements DAO,TeamInfoImple{
 	@Override
 	public TeamInfoDTO teamCount(TeamInfoDTO teamInfoDTO) {
 		return ss.selectOne("selectTeamCount", teamInfoDTO);
+	}
+
+
+
+
+	@Override
+	public TeamInfoDTO myTeamInfo_user(int no) {
+		return (TeamInfoDTO) ss.selectList("selectMyTeamInfo",no);
 	}
 	
 	

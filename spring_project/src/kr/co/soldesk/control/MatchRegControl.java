@@ -27,10 +27,12 @@ public class MatchRegControl {
 
 	@RequestMapping("/matchRegForm")
 	public String processStep1() {
+		
+		
 		return "matchRegForm"; 
 	}
 	
-	@RequestMapping("/matchBoard")
+	@RequestMapping("/matchRegOk")
 	public String processStep2(@ModelAttribute MatchRegDTO matchRegDTO, HttpServletRequest req, Model model) {
 		int m_event = Integer.parseInt(req.getParameter("m_select"));
 		System.out.println(m_event);
@@ -41,10 +43,14 @@ public class MatchRegControl {
 		//model.addAttribute("insertMatchReg", matchRegDAO.selectAll());
 		//model.addAttribute("insertMatchReg", matchRegDAO.selectOne(matchRegDTO.getMatchreg_num()));
 		//model.addAttribute("selectOneMatchReg", matchRegDAO.selectOne(3));
-		model.addAttribute("MatchReg", matchRegDAO.selectAll());
+		model.addAttribute("selectAllMatchReg", matchRegDAO.selectAll());
 		
-		
-		return "match";
+		return "matchRegOk";
 	}
+	
+	/*@RequestMapping("/matchBoard")
+	public String processStep3(HttpServletRequest req, Model model) {
+		return "match";
+	}*/
 	
 }

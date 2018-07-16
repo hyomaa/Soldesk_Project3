@@ -17,8 +17,12 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import kr.co.soldesk.domain.LoginVO;
+import kr.co.soldesk.domain.TeamInfoDTO;
+import kr.co.soldesk.domain.TeamRegDTO;
 import kr.co.soldesk.domain.UserInfoDTO;
 import kr.co.soldesk.persistence.DAO;
+import kr.co.soldesk.persistence.TeamInfoDAO;
+import kr.co.soldesk.persistence.TeamInfoImple;
 import kr.co.soldesk.persistence.UserDAO;
 import kr.co.soldesk.persistence.UserInfoDAO;
 
@@ -33,6 +37,9 @@ public class UserInfoControl {
 	
 	@Autowired
 	UserDAO userDao;
+	
+	/*@Autowired
+	TeamInfoImple teamDAO;*/
 	
 	
 	public void setDao(DAO userDAO) {
@@ -92,15 +99,19 @@ public class UserInfoControl {
 		//System.out.println(id +"  "+pw);
 		
 		
+		
 		if(id != null && pw != null) {
 		
 			UserInfoDTO dto = (UserInfoDTO) userDao.selectOneById(id);
+			System.out.println(dto.getUser_num());
+			//TeamInfoDTO dto2 = (TeamInfoDTO) teamDAO.myTeamInfo_user(dto.getUser_num());
 			
 			if(dto.getUser_pw().equals(pw)) {
 				//로그인 성공
 				
 				model.addAttribute("loginUser", dto);
 				session.setAttribute("user", dto.getUser_id());
+				//model.addAttribute("loginUserTeam", dto2);
 				return "main";
 				
 			}else {

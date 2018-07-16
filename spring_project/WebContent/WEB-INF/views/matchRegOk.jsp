@@ -6,6 +6,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<script type="text/javascript">
+	$(function(){
+		setTimeout(function(){
+			location.href = 'matchBoard';
+		}, 2000);
+	});
+	
+</script>
+
 </head>
 <body>
 	<h2>matchRegOk.jsp</h2>
@@ -18,7 +28,7 @@
 			<th>매치글</th>
 		</tr>
 	
-		<c:forEach var="mt" items="${insertMatchReg }"> 
+		<c:forEach var="mt" items="${selectAllMatchReg }"> 
 		<tr>
 			<td>매칭 번호 : <a href="matchDetail?matchreg_num=${mt.matchreg_num}">${mt.matchreg_num}</a></td>
 			<td>팀 번호 : ${mt.team_num }</td>
@@ -28,7 +38,7 @@
 		</tr>
 		
 		</c:forEach>
-	
+		
 	</table>
 
 </body>

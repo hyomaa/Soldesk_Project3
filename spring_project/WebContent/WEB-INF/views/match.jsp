@@ -356,7 +356,7 @@ $(document).ready(function() {
 	 	</div>
 
 	  	<div id="match_reg">
-	 		<div id="matchbtn"><p>매치등록</p></div>
+	 		<div id="matchbtn"><p><a href="matchRegForm">매치등록</a></p></div>
 	 	</div>
 	 	
 	 </div>
@@ -402,7 +402,7 @@ $(document).ready(function() {
 				</div>
 				
 				<!-- 목록 출력 테스트(현명 추가) -->
-				<c:forEach var="mt" items="${MatchReg }">
+				<c:forEach var="mt" items="${selectAllMatchReg }">
 				<div class="listcontents">
 					<div class="listleft">
 						<div class="teamname"><p>팀 번호 확인 : ${mt.team_num }</p></div>
