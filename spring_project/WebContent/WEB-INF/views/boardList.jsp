@@ -203,7 +203,7 @@
        </div>
       <!-- Paging 처리 -->
       <div id="paging">
-      	페이징 처리
+      	
       </div>
       
       <a href="boardInsert?board_event=${board_event}&category=${board_category}"> 

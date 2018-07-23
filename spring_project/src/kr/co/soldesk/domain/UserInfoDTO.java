@@ -103,7 +103,7 @@ public class UserInfoDTO {
 		return user_location;
 	}
 
-	public void setUser_loc(String user_location) {
+	public void setUser_location(String user_location) {
 		this.user_location = user_location;
 	}
 
@@ -111,7 +111,7 @@ public class UserInfoDTO {
 		return user_profile;
 	}
 
-	public void setUser_prof(String user_profile) {
+	public void setUser_profile(String user_profile) {
 		this.user_profile = user_profile;
 	}
 

@@ -66,6 +66,17 @@ public class BoardDAO implements DAO,BoardImple {
 		return ss.selectList("selectAllMyBoard", no);
 	}
 
+	@Override
+	public void updateHits(int no) {
+		ss.update("updateHits", no);
+	}
+
+	@Override
+	public void updateNom(int no) {
+		ss.update("updateNom",no);
+		
+	}
+
 
 
 	

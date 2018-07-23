@@ -233,14 +233,14 @@
 					<!-- 지역 -->
 					<div style="border-bottom: 1px solid #d5d5d5; height: 54px; width: 1045px; margin: 0 auto;"> 
 						<label for="join_ca1" style="font-size: 1.05em; position: relative; top: 13px;">지역</label>			
-						<select name="user_location" id="user_loc" class="join_input" style="font: 400 13.3333px Arial; width: 100px; height: 23px; position: relative; top: 11px; left: 128px;" maxlength="50" required="required"><option value="">:: 선택 ::</option>					
-								<option value="1/">:: 서울 ::</option>
-								<option value="2/">:: 경기 ::</option>
-								<option value="3/">:: 강원 ::</option>
-								<option value="4/">:: 충청 ::</option>
-								<option value="5/">:: 전라 ::</option>
-								<option value="7/">:: 제주 ::</option>
-								<option value="6/">:: 경상 ::</option>
+						<select name="user_location" id="user_location" class="join_input" style="font: 400 13.3333px Arial; width: 100px; height: 23px; position: relative; top: 11px; left: 128px;" maxlength="50" required="required"><option value="선택">:: 선택 ::</option>					
+								<option value="서울">:: 서울 ::</option>
+								<option value="경기">:: 경기 ::</option>
+								<option value="강원">:: 강원 ::</option>
+								<option value="충청">:: 충청 ::</option>
+								<option value="전라">:: 전라 ::</option>
+								<option value="제주">:: 제주 ::</option>
+								<option value="경상">:: 경상 ::</option>
 						</select>&nbsp;
 								<span id="ca2_span">
 								</span>

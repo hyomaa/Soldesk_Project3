@@ -179,8 +179,33 @@
 	  		</div>
 	  	
 	  		<div class="rt">
-	  				<p class="btitle">무슨 게시판2</p>	
+	  				<p class="btitle">자유 게시판</p>	
 	  				<div class="bcontents">
+	  			<table>
+			  	 <tr>
+		            <th width="10%">번호</th>
+		            <th width="40%">제목</th>
+		            <th width="10%">작성자</th>
+		            <th width="20%">작성일</th>
+		            <th width="10%">조회</th>
+		            <th width="10%">추천</th>
+		          </tr>
+       
+        <c:forEach var="b2" items="${boardlist2 }" end="5" step="1" > 
+		
+		<tr>
+			<td>${b2.board_num}</td>
+			<td id="title"><a href="boardDetail?no=${b2.board_num }&board_category=1&board_event=${board_event}">
+						${b2.board_title}</a></td>
+			<td>${b2.board_writer}</td>
+			<td>${b2.board_date}</td>
+			<td>${b2.board_hits  }</td>
+			<td>${b2.board_nomination }</td>
+		</tr>
+		
+		</c:forEach> 
+		
+	 </table>
 	  			
 	  			
 	  			</div>	

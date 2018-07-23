@@ -19,7 +19,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>스포치이</title>
+    <title>매칭닷컴</title>
 
     <!-- Bootstrap core CSS -->
     <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">앙 스포치이</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">매칭닷컴</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -87,7 +87,7 @@
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <h1 class="text-uppercase">
-              <strong>앙 스포치이</strong>
+              <strong>매칭닷컴</strong>
             </h1>
             <hr>
           </div>
@@ -105,7 +105,7 @@
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading text-white">다양한 재미를 느껴보세요</h2>
             <hr class="light my-4">
-            <p class="text-faded mb-4">스포치이의 세계에 오신것을 환영합니다</p>
+            <p class="text-faded mb-4">매칭닷컴에 오신것을 환영합니다</p>
             <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">시작하기</a>
           </div>
         </div>

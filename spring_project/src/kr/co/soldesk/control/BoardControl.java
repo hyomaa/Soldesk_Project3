@@ -87,6 +87,13 @@ public class BoardControl {
 		
 		List<BoardDTO> list = boardImple.selectAllByCate(boardDTO);
 		
+		for(BoardDTO dto : list) {
+			
+			dto.setBoard_date(dto.getBoard_date().substring(0, 16));
+			
+		}
+		
+		
 		model.addAttribute("boardlist",list);
 		model.addAttribute("board_event",board_event);
 		model.addAttribute("board_category",board_category);
@@ -109,18 +116,38 @@ public class BoardControl {
 		public String processStep5(HttpServletRequest req,Model model) {
 			
 			int board_event =Integer.parseInt( req.getParameter("board_event"));
-			
+			int board_category = Integer.parseInt( req.getParameter("board_category"));
 			
 			BoardDTO boardDTO = new BoardDTO();
 			boardDTO.setBoard_event(board_event);
+			boardDTO.setBoard_category(board_category);
 			
 			
 			List<BoardDTO> list = boardImple.selectAllByCate(boardDTO);
+			
+			for(BoardDTO dto : list) {
+				
+				dto.setBoard_date(dto.getBoard_date().substring(0, 10));
+				
+			}
+			
 			
 			model.addAttribute("boardlist",list);
 			
 			model.addAttribute("board_event",board_event);
 			
+			
+			boardDTO.setBoard_category(2);
+			
+			list = boardImple.selectAllByCate(boardDTO);
+			
+			for(BoardDTO dto : list) {
+				
+				dto.setBoard_date(dto.getBoard_date().substring(0, 10));
+				
+			}
+			
+			model.addAttribute("boardlist2", list);
 			
 			
 			return "soccerMain";
@@ -172,6 +199,14 @@ public class BoardControl {
 	
 		if(req.getParameter("no") != null) {
 		
+
+		//조회수 증가
+		
+		boardImple.updateHits(Integer.parseInt(req.getParameter("no")));
+		
+		
+		//게시물 정보 가져오기
+		
 		model.addAttribute("boardDetail", boardDAO.selectOne(Integer.parseInt(req.getParameter("no"))));
 		
 		String board_event = req.getParameter("board_event");
@@ -182,6 +217,9 @@ public class BoardControl {
 		
 		model.addAttribute("board_event",board_event);
 		model.addAttribute("board_category",board_category);
+		
+		
+		
 		
 		return "boardDetail";
 		
