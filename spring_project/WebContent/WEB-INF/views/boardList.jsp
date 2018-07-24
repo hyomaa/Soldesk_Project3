@@ -206,7 +206,7 @@
       	
       </div>
       
-      <a href="boardInsert?board_event=${board_event}&category=${board_category}"> 
+      <a href="boardInsert?board_event=${board_event}&board_category=${board_category}"> 
 		<input type="button" value="글쓰기"  id="wrbtn" class="mybtn"/>
 	</a>	
    	

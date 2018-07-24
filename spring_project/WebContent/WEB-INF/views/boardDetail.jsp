@@ -25,7 +25,28 @@ $(document).ready(function() {
 		}
 		
 	});
+	
+	
+	
+	$("#nombtn").on('click',function(){
+		if(confirm("추천하시겠습니까?") == true){
+			var no = $('#board_num').val();
+			var cate= $('input[name=board_category]').val();
+			var event = $('input[name=board_event]').val();
+			location.href = 'nomUpdate?board_num='+no+'&board_category='+cate+"&board_event="+event;
+		} else {
+			return;
+			
+		}
+		
+		
+	});
+	
+	
+	
 });
+
+
 
 </script>
 
@@ -36,6 +57,8 @@ table, th, tr, td{
 	border: 1px solid black;
 	border-collapse: collapse;
 }
+
+
 
 .mybtn {
 	margin-left:15px;
@@ -214,13 +237,21 @@ table, th, tr, td{
 			<tr>
 				<td colspan="6">
 					<input type="button" value="목록"  class="mybtn" onclick="javascript:location.href='boardList?board_category=${board_category }&board_event=${board_event }'"/>
-					<input type="button" value="수정"  class="mybtn" onclick="javascript:location.href='boardModify?no=${boardDetail.board_num }&board_category=${board_category }&board_event=${board_event }'"/>
 					
+					<c:if test="${loginUser.user_num == boardDetail.user_num }">
+					<input type="button" value="수정"  class="mybtn" onclick="javascript:location.href='boardModify?no=${boardDetail.board_num }&board_category=${board_category }&board_event=${board_event }'"/>
 					<input type="button"  value=삭제 id="deletebtn" class="mybtn"/>
+					</c:if>
+					
+					<c:if test="${loginUser.user_num !=boardDetail.user_num }">
+						<input type="button" value="추천" class="mybtn" id="nombtn"/>
+					</c:if>
+					
+					
 				<form action="deleteOk" name="frm">
 					<input type="hidden" name="board_category" value="${board_category }" />
 					<input type="hidden" name="board_event" value="${board_event }" />
-					<input type="hidden" name="board_num" value="${boardDetail.board_num }" />
+					<input type="hidden" id='board_num' name="board_num" value="${boardDetail.board_num }" />
 				
 				</form>
 				</td>

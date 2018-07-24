@@ -175,26 +175,26 @@
         			
         			<c:choose>
 	      	
-	     			 	<c:when test= "${param.category == 1}">
+	     			 	<c:when test= "${board_category == 1}">
 	      					 <option value="1" selected="selected">공지사항</option>
 	      					 <option value="2">자유게시판</option>
 	      					 <option value="3">팀가입인사</option>
 	      					 <option value="4">모집게시판</option>
 	      					 
 	      				</c:when>
-        				<c:when test= "${param.category == 2}">
+        				<c:when test= "${board_category == 2}">
         					 <option value="1">공지사항</option>
 	      					 <option value="2" selected="selected">자유게시판</option>
         					 <option value="3">팀가입인사</option>
 	      					 <option value="4">모집게시판</option>
         				</c:when>
-        				<c:when test= "${param.category == 3}">
+        				<c:when test= "${board_category == 3}">
         					 <option value="1">공지사항</option>
 	      					 <option value="2">자유게시판</option>
 	   						 <option value="3" selected="selected">팀가입인사</option>
 	   						  <option value="4">모집게시판</option>
 	   					</c:when>
-	   					 <c:when test= "${param.category == 4}">
+	   					 <c:when test= "${board_category == 4}">
 	   						 <option value="1">공지사항</option>
 	      					 <option value="2">자유게시판</option>
 	      					 <option value="3">팀가입인사</option>

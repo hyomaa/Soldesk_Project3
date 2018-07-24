@@ -78,6 +78,8 @@ public class BoardControl {
 		String board_event = req.getParameter("board_event");
 		String board_category = req.getParameter("board_category");
 		
+		if(board_event != null && board_category != null) {
+			
 		int event = Integer.parseInt(board_event);
 		int category = Integer.parseInt(board_category);
 	
@@ -97,7 +99,7 @@ public class BoardControl {
 		model.addAttribute("boardlist",list);
 		model.addAttribute("board_event",board_event);
 		model.addAttribute("board_category",board_category);
-		
+		}
 		return "boardList";
 	}
 	
@@ -293,5 +295,23 @@ boardDAO.updateOne(boardDTO);
 	}
 	
 	
+	
+	@RequestMapping("/nomUpdate")
+	public void nomUpdate(HttpServletRequest req,HttpServletResponse resp) throws IOException
+	{
+		String n = req.getParameter("board_num");
+		String event = req.getParameter("board_event");
+		String cate = req.getParameter("board_category");
+		
+		if(n != null ) {
+		
+			int no = Integer.parseInt(n);
+			boardImple.updateNom(no);
+			
+			resp.sendRedirect("/spring_project/boardDetail?no="+no+"&board_category="+cate+"&board_event="+event);
+		
+		}
+		
+			}
 
 }

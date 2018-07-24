@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>앙 스포치이</title>
+<title>매칭닷컴</title>
 <style type="text/css">
 	#wrapper{position:relative; width: 100%; height: 945px;}
 	#id:hover{background-color: orange; border-color: skyblue;}
