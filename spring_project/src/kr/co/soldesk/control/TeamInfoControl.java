@@ -30,38 +30,17 @@ public class TeamInfoControl {
 	}
 
 	
-/*	@RequestMapping(value="/teamInfoList")
-	public String list(Model model) {
-		
-		List<UserInfoDTO> list = teamInfoDAO.selectAll();
-		
-		model.addAttribute("teamlist", list);
-		
-		return "teamList";		
-	}*/
-	
-/*	@RequestMapping(value="/boardList")
-	public String list(HttpServletRequest req, Model model) {
-		String event = req.getParameter("board_event");
-		String no = req.getParameter("board_category");
-		int category = Integer.parseInt(no);
-	
-		BoardDTO boardDTO = new BoardDTO();
-		boardDTO.setBoard_event(event);
-		 boardDTO.setBoard_category(category);
-		
-		List<BoardDTO> list = boardImple.selectAllByCate(boardDTO);
-		
-		model.addAttribute("boardlist",list);
-		return "boardList";
-	}*/
-	
-	
+
 	
 	
 	@RequestMapping("/teamInsert")
-	public String processStep1() {
+	public String processStep1(HttpServletRequest req,Model model) {
 	
+		String e = req.getParameter("board_event");
+		int event = Integer.parseInt(e);
+		
+		
+		model.addAttribute("teamEvent", event);
 		
 		return "teamInsertForm";
 	}

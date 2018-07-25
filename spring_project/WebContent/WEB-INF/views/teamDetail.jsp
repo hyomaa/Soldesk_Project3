@@ -50,11 +50,7 @@
 </head>
 <body>
 
-	<% 
-	
-	String event = request.getParameter("board_event");
-	/* int category = Integer.parseInt(request.getParameter("board_category")); */
-	%> 
+
 
 
     <div id="top">
@@ -100,16 +96,16 @@
       <div id="img">
       <c:choose>
       	
-      	<c:when test= "${param.board_event == '1'}">
+      <c:when test= "${teamDetail.team_event == 1}">
       	<img src="./resources/img/soccer.jpg" alt="" />
       	</c:when>
-      	<c:when test= "${param.board_event == '2'}">
+      	<c:when test= "${teamDetail.team_event == 2}">
       	<img src="./resources/img/footvolleyball.jpg" alt="" />
       	</c:when>
-      	<c:when test= "${param.board_event == '3'}">
+      	<c:when test= "${teamDetail.team_event == 3}">
       	<img src="./resources/img/basketball.jpg" alt="" />
       	</c:when>
-      	<c:when test= "${param.board_event == '4'}">
+      	<c:when test= "${teamDetail.team_event == 4}">
       	<img src="./resources/img/volleyball.jpg" alt="" />
       	</c:when>
       	
@@ -123,8 +119,8 @@
                     <div class="dropdown-sub">	
                     
                     
-              	 	 <a href="teamInfoList?board_event=<%=event%>">팀정보</a>
-              	 	 <a href="teamInsert?board_event=<%=event%>">팀생성</a>
+              	 	 <a href="teamInfoList?board_event=${teamDetail.team_event }">팀정보</a>
+              	 	 <a href="teamInsert?board_event=${teamDetail.team_event }">팀생성</a>
               	 	 </div> 
               </li>
                <li class="dropdown">
@@ -138,10 +134,10 @@
                    <div class="dropdown-sub">
                   	 
                   	  
-                  	   <a href="boardList?board_event=<%=event%>&board_category=1">공지사항</a>
-                        <a href="boardList?board_event=<%=event%>&board_category=2">자유게시판</a>
-                        <a href="boardList?board_event=<%=event%>&board_category=3">팀가입인사</a>
-                        <a href="boardList?board_event=<%=event%>&board_category=4">팀모집게시판</a>
+                  	   <a href="boardList?board_event=${teamDetail.team_event }&board_category=1">공지사항</a>
+                        <a href="boardList?board_event=${teamDetail.team_event }&board_category=2">자유게시판</a>
+                        <a href="boardList?board_event=${teamDetail.team_event }&board_category=3">팀가입인사</a>
+                        <a href="boardList?board_event=${teamDetail.team_event }&board_category=4">팀모집게시판</a>
                    	</div>
                    
                   
@@ -149,7 +145,7 @@
                <li class="dropdown">
                    <a href="#" class="dropbtn">경기장</a>
                    <div class="dropdown-sub">
-                                  <a href="stadiumList?board_event=<%=event%>">경기장안내</a>         
+                                  <a href="stadiumList?board_event=${teamDetail.team_event }">경기장안내</a>         
                    </div>
                </li>
            </ul>

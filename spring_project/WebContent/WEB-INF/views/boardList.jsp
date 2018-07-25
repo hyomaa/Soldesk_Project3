@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -182,10 +184,10 @@
        
         
         
-		 <c:forEach var="b" items="${boardlist }"> 
+		 <c:forEach var="b" items="${boardlist }" varStatus="status" > 
 		
 		<tr>
-			<td>${b.board_num}</td>
+			<td>${fn:length(boardlist)-status.index}</td>
 			<td id="title"><a href="boardDetail?no=${b.board_num }&board_category=${board_category}&board_event=${board_event}">
 						${b.board_title}</a></td>
 			<td>${b.board_writer}</td>

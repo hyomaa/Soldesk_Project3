@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>앙 스포치이</title>
+<title>매칭닷컴</title>
 <style type="text/css">
 	#wrapper{position:relative; width: 100%; height: 945px;}
 	#id:hover{background-color: orange; border-color: skyblue;}
@@ -119,20 +119,20 @@ $(document).ready(function() {
 									
 						<c:choose>
       	
-					      	<c:when test= "${param.board_event == '1'}">
+					      	<c:when test= "${teamEvent == 1}">
 					      		<option value="1" selected="selected">:: 축구/풋살 ::</option>
 					      	</c:when>
 					      	
-					      	<c:when test= "${param.board_event == '2'}">
+					      	<c:when test= "${teamEvent == 2}">
 					      	<option value="2" selected="selected">:: 족구 ::</option>
 					      	</c:when>
 					      	
 					      	
-					      	<c:when test= "${param.board_event == '3'}">
+					      	<c:when test= "${teamEvent == 3}">
 					      	<option value="3" selected="selected">:: 농구 ::</option>
 					      	</c:when>
 					      	
-					      	<c:when test= "${param.board_event == '4'}">
+					      	<c:when test= "${teamEvent == 4}">
 					      	<option value="4" selected="selected">:: 배구 ::</option>
 					      	</c:when>
       	

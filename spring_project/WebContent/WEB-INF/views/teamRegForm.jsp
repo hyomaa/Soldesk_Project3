@@ -48,11 +48,6 @@
 </head>
 <body>
 
-	<% 
-	
-	String event = request.getParameter("teamevent");
-	/* int category = Integer.parseInt(request.getParameter("board_category")); */
-	%> 
 
 
     <div id="top">
@@ -121,8 +116,8 @@
                     <div class="dropdown-sub">	
                     
                     
-              	 	 <a href="teamInfoList?board_event=<%=event%>">팀정보</a>
-              	 	 <a href="teamInsert?board_event=<%=event%>">팀생성</a>
+              	 	 <a href="teamInfoList?board_event=${teamreg.teamreg_event }">팀정보</a>
+              	 	 <a href="teamInsert?board_event=${teamreg.teamreg_event }">팀생성</a>
               	 	 </div> 
               </li>
                <li class="dropdown">
@@ -136,10 +131,10 @@
                    <div class="dropdown-sub">
                   	 
                   	  
-                  	   <a href="boardList?board_event=<%=event%>&board_category=1">공지사항</a>
-                        <a href="boardList?board_event=<%=event%>&board_category=2">자유게시판</a>
-                        <a href="boardList?board_event=<%=event%>&board_category=3">팀가입인사</a>
-                        <a href="boardList?board_event=<%=event%>&board_category=4">팀모집게시판</a>
+                  	   <a href="boardList?board_event=${teamreg.teamreg_event }&board_category=1">공지사항</a>
+                        <a href="boardList?board_event=${teamreg.teamreg_event }&board_category=2">자유게시판</a>
+                        <a href="boardList?board_event=${teamreg.teamreg_event }&board_category=3">팀가입인사</a>
+                        <a href="boardList?board_event=${teamreg.teamreg_event }&board_category=4">팀모집게시판</a>
                    	</div>
                    
                   
@@ -147,7 +142,7 @@
                <li class="dropdown">
                    <a href="#" class="dropbtn">경기장</a>
                    <div class="dropdown-sub">
-                                  <a href="stadiumList?board_event=<%=event%>">경기장안내</a>         
+                                  <a href="stadiumList?board_event=${teamreg.teamreg_event }">경기장안내</a>         
                    </div>
                </li>
            </ul>
@@ -160,7 +155,7 @@
 <h3>포지션 선택</h3>
  <c:choose>
       	
-      	<c:when test= "${param.teamevent == '1'}">
+      	<c:when test= "${teamreg.teamreg_event == 1}">
       	<h2>종목 : 축구</h2>
       	<select name="teamreg_position" id="">
      	<option value="">------</option>
@@ -170,7 +165,7 @@
 		<option value="공격수">공격수</option>
 		</select>
       	</c:when>
-      	<c:when test= "${param.teamevent == '2'}">
+      	<c:when test= "${teamreg.teamreg_event == 2}">
       	<h2>종목 : 족구</h2>
       	<select name="teamreg_position" id="">
       	<option value="">------</option>
@@ -180,7 +175,7 @@
 		<option value="좌공격수">좌공격수</option>
 		</select>
       	</c:when>
-      	<c:when test= "${param.teamevent == '3'}">
+      	<c:when test= "${teamreg.teamreg_event == 3}">
       	<h2>종목 : 농구</h2>
       	<select name="teamreg_position" id="">
       	<option value="">------</option>
@@ -191,7 +186,7 @@
 		<option value="스몰포워드">스몰포워드</option>
 		</select>
       	</c:when>
-      	<c:when test= "${param.teamevent == '4'}">
+      	<c:when test= "${teamreg.teamreg_event == 4}">
       	<h2>종목 : 배구</h2>
       	<select name="teamreg_position" id="">
       	<option value="">------</option>

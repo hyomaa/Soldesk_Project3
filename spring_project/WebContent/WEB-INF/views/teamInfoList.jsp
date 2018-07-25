@@ -48,11 +48,7 @@
 </head>
 <body>
 
-	<% 
-	
-	String event = request.getParameter("board_event");
-	/* int category = Integer.parseInt(request.getParameter("board_category")); */
-	%> 
+
 
 
     <div id="top">
@@ -98,16 +94,16 @@
       <div id="img">
       <c:choose>
       	
-      	<c:when test= "${param.board_event == '1'}">
+      	<c:when test= "${teamEvent == 1}">
       	<img src="./resources/img/soccer.jpg" alt="" />
       	</c:when>
-      	<c:when test= "${param.board_event == '2'}">
+      	<c:when test= "${teamEvent == 2}">
       	<img src="./resources/img/footvolleyball.jpg" alt="" />
       	</c:when>
-      	<c:when test= "${param.board_event == '3'}">
+      	<c:when test= "${teamEvent == 3}">
       	<img src="./resources/img/basketball.jpg" alt="" />
       	</c:when>
-      	<c:when test= "${param.board_event == '4'}">
+      	<c:when test= "${teamEvent == 4}">
       	<img src="./resources/img/volleyball.jpg" alt="" />
       	</c:when>
       	
