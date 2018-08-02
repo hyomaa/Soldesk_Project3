@@ -67,7 +67,7 @@ $(document).ready(function() {
 	<form action="teamInsertOk" name="frm" >
 	<div id="wrapper">
 		<div class="top_write" style="padding: 0 0 30px 0;">
-			<h1 style="text-align: center; color: #444;">팀등록</h1>
+			<h1 style="text-align: center; color: #444;">팀생성</h1>
 				<p style="margin: 0 auto; padding: 10px 0 0 0; text-align: center;">			
 					<span style="color: red;">*</span>
 					 표시된 항목은 반드시 입력하셔야 합니다.

@@ -16,7 +16,6 @@
 	
 	<mappers>
 		<mapper resource="kr/co/soldesk/resource/Mapper.xml"  />
-	
 	</mappers>
 	
 	

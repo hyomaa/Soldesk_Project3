@@ -52,7 +52,6 @@ public class TeamInfoControl {
 		
 		teamInfoDAO.insertOne(teamInfoDTO);
 		
-		/*return "redirect:/soccerMain?board_event="+teamInfoDTO.getTeam_event()+"&board_category=1";*/
 		return "redirect:/teamInfoList?board_event="+teamInfoDTO.getTeam_event();
 	}
 	
@@ -70,9 +69,11 @@ public class TeamInfoControl {
 	
 	@RequestMapping("/myTeamList")
 	public String myteam(HttpServletRequest req,Model model) {
+		
+		//세션에서 유저 정보를 가져온 뒤
 		UserInfoDTO dto = (UserInfoDTO) req.getSession().getAttribute("loginUser");
 
-		//팀인포 가져오기 
+		//가입한 팀 정보 가져오기 
 		List<TeamInfoDTO> list = teamInfoImple.myTeamInfo(dto.getUser_num());
 		
 		model.addAttribute("myTeamList", list);

@@ -171,7 +171,8 @@ public class BoardControl {
 	
 	
 	@RequestMapping("/boardInsertOk")
-	public void processStep2(@ModelAttribute BoardDTO boardDTO,HttpServletRequest req,HttpServletResponse resp,Model model) throws IOException {
+	public void processStep2(@ModelAttribute BoardDTO boardDTO,HttpServletRequest req,
+			HttpServletResponse resp,Model model) throws IOException {
 			
 			String u = req.getParameter("user_num");
 			String e = req.getParameter("board_event");
@@ -200,33 +201,24 @@ public class BoardControl {
 	public String detail(HttpServletRequest req,Model model) {
 	
 		if(req.getParameter("no") != null) {
-		
-
+	
 		//조회수 증가
-		
 		boardImple.updateHits(Integer.parseInt(req.getParameter("no")));
 		
-		
 		//게시물 정보 가져오기
-		
 		model.addAttribute("boardDetail", boardDAO.selectOne(Integer.parseInt(req.getParameter("no"))));
 		
 		String board_event = req.getParameter("board_event");
 		String board_category = req.getParameter("board_category");
 		
-
-		
 		
 		model.addAttribute("board_event",board_event);
 		model.addAttribute("board_category",board_category);
-		
-		
-		
+	
 		
 		return "boardDetail";
 		
-		}else
-			
+		}else	
 			return "main";
 	}
 	

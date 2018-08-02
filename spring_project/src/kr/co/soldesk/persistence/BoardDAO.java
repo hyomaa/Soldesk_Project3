@@ -33,13 +33,15 @@ public class BoardDAO implements DAO,BoardImple {
 		
 	}
 	
-	
-
 	@Override
 	public Object selectOne(int no) {
 		
 		return (BoardDTO)ss.selectOne("selectOneBoard", no);
 	}
+	
+	
+	
+	
 
 	@Override
 	public void updateOne(Object obj) {

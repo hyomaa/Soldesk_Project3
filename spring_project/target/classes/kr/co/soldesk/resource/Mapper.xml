@@ -50,12 +50,9 @@
 	</select>
 	
 	<!-- 게시글 디테일 -->
-	<select id="selectOneBoard" parameterType="int" resultType="boardDTO">
-		select * from board
-		where board_num = #{board_num}
-	</select>
 	
 	<!--  종목별, 카테고리별로 리스트 뽑기 -->
+	
 	<select id="selectBoardByCate" parameterType="boardDTO" resultType="boardDTO">
 		select * from board
 		where board_event = #{board_event} and board_category = #{board_category}
@@ -63,6 +60,7 @@
 	</select>
 	
 	<!-- 조회수 증가  -->
+	
 	<update id="updateHits" parameterType="int"  >
 		update board
 		set board_hits = board_hits + 1
@@ -78,10 +76,6 @@
 	</update>
 	
 	
-	
-	
-	
-	
 	<!-- 내가 쓴 글 보기 -->
 	
 	<select id="selectAllMyBoard" parameterType="int"  resultType="boardDTO">
@@ -90,9 +84,15 @@
 	
 	
 	
+	<select id="selectOneBoard" parameterType="int" resultType="boardDTO">
+		select * from board
+		where board_num = #{board_num}
+	</select>
+	
 	<insert id="insertOneBoard" parameterType="boardDTO" >
 		insert into board
-		values (#{board_event},#{board_category},#{user_num},board_num_seq.nextval,#{board_title},#{board_writer},sysdate,
+		values (#{board_event},#{board_category},#{user_num},board_num_seq.nextval,
+		#{board_title},#{board_writer},sysdate,
 		#{board_contents},#{board_image}, 0, 0, 0)
 	</insert>
 	
@@ -118,6 +118,7 @@
 	<select id="selectTeamInfoByEvent" parameterType="teamInfoDTO" resultType="teamInfoDTO">
 	select * from team_info
 	where team_event = ${team_event}
+	order by team_num desc
 	</select>
 	
 	<!--종목별,지역별 팀인포  -->
@@ -127,7 +128,8 @@
 	where team_event=#{team_event} and team_location= #{team_location}
 	</select>
 	
-	
+	<!-- 주석빌런 왔다감 ㅋㅋㅋㅋㅋ 히헤헤헤헤헤헤헿 내일 면접 망했어요 ㅎ카ㅓㅏ멍나허마어나ㅓㅏㅣㄴㄹㅇ머ㅏㅣ;ㅇㄴㅁ러ㅏㅣ
+	ㅎㅎㅎㅎㅎㅎ -->
 	
 	<select id="selectOneTeamInfo" parameterType="int" resultType="teamInfoDTO">
 		select * from team_info
@@ -140,6 +142,8 @@
 	where team_num in (select team_num from team_reg
 	where user_num = #{user_num})
 	</select>
+	
+	
 	
 	<insert id="insertOneTeamInfo" parameterType="teamInfoDTO" >
 		insert into team_info

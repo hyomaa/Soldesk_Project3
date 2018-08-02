@@ -46,18 +46,20 @@ public class TeamRegControl {
 
 	@RequestMapping("/teamReg")
 	public String processStep1(Model model, HttpServletRequest req) {
+		
+		//팀의 종목과 번호를 받아옴
 		int no = Integer.parseInt(req.getParameter("teamevent"));
 		int team_num = Integer.parseInt(req.getParameter("teamno"));
+		
+		//세션에서 유저정보 받아옴
 		UserInfoDTO userdto = (UserInfoDTO) req.getSession().getAttribute("loginUser");
-		
-		System.out.println(userdto.getUser_num());
-		
 		TeamRegDTO dto = new TeamRegDTO();
 		
 		dto.setTeam_num(team_num);
 		dto.setTeamreg_event(no);
 		dto.setUser_num(userdto.getUser_num());
 		
+		//객체로 만들어 등록폼으로 보냄
 		model.addAttribute("teamreg", dto);
 		
 		return "teamRegForm";
@@ -68,16 +70,18 @@ public class TeamRegControl {
 	@RequestMapping("/teamRegOk")
 	public String processStep2(HttpServletRequest req,Model model) {
 		
+		//등록폼에서 유저가 선택한 포지션을 받아옴
 		String position = req.getParameter("teamreg_position");
+		
+		//팀정보를 가져와서 포지션과 함께 객체 생성
 		TeamRegDTO regdto = (TeamRegDTO) req.getSession().getAttribute("teamreg");
-		 
 		 regdto.setTeamreg_positon(position);
 		
+		 //DB에 등록
 		 teamRegDAO.insertOne(regdto);
 		 
-		
-		TeamInfoDTO dto = (TeamInfoDTO) teamInfoDAO.selectOne(regdto.getTeam_num());
-		model.addAttribute("myteam", dto);
+		 //사용자에게 가입한 팀정보를 보여주기 위해
+		model.addAttribute("myteam", regdto);
 		
 		return "teamRegOk";
 	}

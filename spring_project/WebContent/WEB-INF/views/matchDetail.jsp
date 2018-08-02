@@ -388,7 +388,7 @@
 					<div class="team">
 						<div class="team_img"><img src="resources/img/pic.png" alt="" class="img"/></div>
 						<div class="team_name">
-							<p class="tname">글쓴팀명</p>
+							<p class="tname">은조축구팀</p>
 						</div>
 						<div class="team_record">
 							<p class="record">10전 9승 0무 1패</p>
@@ -439,7 +439,7 @@
 						<p class="valuep">서울시 종로구 관철동</p>
 					</div>
 					<div class="value">
-						<p class="valuep">경기장들어가는곳</p>
+						<p class="valuep">성북구립축구장</p>
 					</div>
 					<div class="value">
 						<p class="valuep">2018년 07월 20일 12:00</p>
@@ -490,10 +490,10 @@
 						<input type="checkbox" value="팀번호"/>
 					</div>
 					<div class="cteam_name">
-						<p>신청팀이름1</p>
+						<p>성북 직장인 축구회</p>
 					</div>
 					<div class="cteam_record">
-						<p>신청팀전적1</p>
+						<p>30전 20승 1무 9패</p>
 					</div>
 				</div>
 				
@@ -503,11 +503,11 @@
 						<input type="checkbox" value="팀번호"/>
 					</div>
 					<div class="cteam_name">
-						<p>신청팀이름2</p>
+						<p>한양 FC</p>
 					</div>
 					
 					<div class="cteam_record">
-						<p>신청팀전적2</p>
+						<p>14전 7승 3무 4패</p>
 					</div>
 					
 				</div>

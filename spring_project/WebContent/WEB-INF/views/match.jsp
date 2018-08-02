@@ -23,10 +23,7 @@ $(document).ready(function() {
 	
 	
 	var loc = "전체";
-	
-	
-	/* ${data}는  testclass에서 넘어옵니다 */
-	
+
 
 	$(".loc").click(function(){
 		
@@ -197,8 +194,8 @@ $(document).ready(function() {
 		width: 700px;
 		margin: 0 auto;
 		border-top: 1px solid black;
-		border-right: 1px solid black;
-		border-left: 1px solid black;
+		/* border-right: 1px solid black;
+		border-left: 1px solid black; */
 	
 	}
 	
@@ -324,6 +321,7 @@ $(document).ready(function() {
 	
 	a{
 		text-decoration: none;
+		
 	}
 	
 
@@ -335,7 +333,7 @@ $(document).ready(function() {
 <div id="contents_wrap">
 
 	<div id="menu_title_wrap">
-	 	<h1>매치신청</h1>
+	 	<h1>매치보드</h1>
 	</div>
 	
 	
@@ -356,7 +354,7 @@ $(document).ready(function() {
 	 	</div>
 
 	  	<div id="match_reg">
-	 		<div id="matchbtn"><p><a href="matchRegForm">매치등록</a></p></div>
+	 		<div id="matchbtn"><p>매치등록</p></div>
 	 	</div>
 	 	
 	 </div>
@@ -367,7 +365,7 @@ $(document).ready(function() {
 	  
 	  
 	  <div id="list_title">
-	  	<h2>(날짜 넘어오는 부분)의 매치</h2>
+	  	<h2>2018년 7월 20일 의 매치</h2>
 	  </div>
 	  
 	
@@ -378,7 +376,7 @@ $(document).ready(function() {
 				<!-- 매치 팀정보 들어가는 부분 -->
 				<div class="listcontents">
 					<div class="listleft">
-						<div class="teamname"><p>테스트팀</p></div>
+						<div class="teamname"><p>성북 FC</p></div>
 						<div class="teamrecord"><p>10전 9승 0무 1패</p></div>
 					</div>
 					<div class="listmid">
@@ -390,11 +388,11 @@ $(document).ready(function() {
 				</div>
 				<div class="listcontents">
 					<div class="listleft">
-						<div class="teamname"><p>테스트팀</p></div>
-						<div class="teamrecord"><p>10전 9승 0무 1패</p></div>
+						<div class="teamname"><p>노원 축구회</p></div>
+						<div class="teamrecord"><p>3전 2승 0무 1패</p></div>
 					</div>
 					<div class="listmid">
-						<div class="matchdate"><p>2018.07.20 12:00 에 매치합시다</p></div>
+						<div class="matchdate"><p>2018.07.20 14:00 에 매치합시다</p></div>
 					</div>
 					<div class="listright">
 						<div class="matchdetail"><a href="matchDetail"><span>자세히 보기</span></a></div>

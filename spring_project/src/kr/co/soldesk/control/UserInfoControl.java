@@ -92,38 +92,27 @@ public class UserInfoControl {
 			return "/spring_project/";
 		}
 		
-		
 		String id = req.getParameter("user_id");
 		String pw = req.getParameter("user_pw");
 		
-		//System.out.println(id +"  "+pw);
-		
-		
-		
+		//id , pw null 처리 부분
 		if(id != null && pw != null) {
 		
 			UserInfoDTO dto = (UserInfoDTO) userDao.selectOneById(id);
 			System.out.println(dto.getUser_num());
-			//TeamInfoDTO dto2 = (TeamInfoDTO) teamDAO.myTeamInfo_user(dto.getUser_num());
-			
+		
 			if(dto.getUser_pw().equals(pw)) {
+			   
 				//로그인 성공
-				
 				model.addAttribute("loginUser", dto);
-				session.setAttribute("user", dto.getUser_id());
-				//model.addAttribute("loginUserTeam", dto2);
+	
 				return "main";
-				
 			}else {
 				//로그인실패
-				
 				return "login";
-			}
-			
+			}	
 		}else {
-				
 				return "login";
-			
 		}
 		
 		
@@ -154,40 +143,40 @@ public class UserInfoControl {
 		
 	}
 	
+	
 	@RequestMapping("/myPageModify")
 	public String myPageMod(HttpServletRequest req,Model model) {
 		
-		String id = req.getParameter("user_id");
+		//로그인한 유저의 아이디를 가져와서 입력한 패스워드와 비교
+		UserInfoDTO loginUser = (UserInfoDTO) req.getSession().getAttribute("loginUser");
+	
+		String id = loginUser.getUser_id();
 		String pw = req.getParameter("user_pw");
-		
-		//System.out.println(id +"  "+pw);
-		
 		
 		if(id != null && pw != null) {
 		
 			UserInfoDTO dto = (UserInfoDTO) userDao.selectOneById(id);
 			
 			if(dto.getUser_pw().equals(pw)) {
-				//로그인 성공
-
+				//패스워드 일치시 - 정보수정 페이지로
+	
 				return "myPageModify";
 				
 			}else {
-				//로그인실패
+				//불일치시 - 원래 페이지로
 				
 				return "myPageCheck";
 			}
-			
 		}else {	
 				return "myPageCheck";	
 		}
-		
 	}//myPageMod end
 	
 	
 	@RequestMapping("/myPageModifyOk")
 	public String modOk(HttpServletRequest req,Model model,SessionStatus st) {
 		
+		//사용자가 입력(수정)한 정보들 가져옴
 		String user_pw = req.getParameter("user_pw");
 		String user_name = req.getParameter("user_name");
 		String user_nickname=req.getParameter("user_nickname");
@@ -197,16 +186,18 @@ public class UserInfoControl {
 		String user_prof = req.getParameter("user_prof");
 		int user_num = Integer.parseInt(req.getParameter("user_num"));
 		
-	
-		UserInfoDTO userInfoDTO = new UserInfoDTO(user_num, "ID" , user_pw, user_name, user_nickname, "A", user_phone, user_birth, user_loc, user_prof, "18");
+		//객체에 담아서 DB내용을 수정한다
+		UserInfoDTO userInfoDTO = new UserInfoDTO(user_num, "ID" , user_pw, user_name, 
+				user_nickname, "A", user_phone, user_birth, user_loc, user_prof, "18");
+		
 		userDAO.updateOne(userInfoDTO);
 	
 		
 		UserInfoDTO dto = (UserInfoDTO) req.getSession().getAttribute("loginUser");
 		
+		//정보가 수정됐으므로, 세션의 정보도 바꿔준다
 		model.addAttribute("loginUser",userDao.selectOneById(dto.getUser_id()));
 		
-		System.out.println("session 확인 : "+dto.getUser_pw());
 		
 		return "myPageModify";
 	}
@@ -229,10 +220,6 @@ public class UserInfoControl {
 		else
 			model.addAttribute("check", 1);
 			
-		
-		
-		
-		
 		
 		return "idCheck";
 	}

@@ -52,15 +52,12 @@
 	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<!-- db 연결정보 -->
 		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="/WEB-INF/SqlMapConfig.xml" />	
-	
-</bean>
+		<property name="configLocation" value="/WEB-INF/SqlMapConfig.xml" /></bean>
 	
 	
-	<!-- ${driver} 이런 정보들이 어디에 있는지 spring framework가 모르니까 알려주기 -->
+
 	<bean id="property" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="location" value="/WEB-INF/db.properties" />
-</bean>	
+		<property name="location" value="/WEB-INF/db.properties" /></bean>	
 	
 	<!-- db 연결정보 - bean -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
