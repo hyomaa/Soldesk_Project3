@@ -128,8 +128,7 @@
 	where team_event=#{team_event} and team_location= #{team_location}
 	</select>
 	
-	<!-- 주석빌런 왔다감 ㅋㅋㅋㅋㅋ 히헤헤헤헤헤헤헿 내일 면접 망했어요 ㅎ카ㅓㅏ멍나허마어나ㅓㅏㅣㄴㄹㅇ머ㅏㅣ;ㅇㄴㅁ러ㅏㅣ
-	ㅎㅎㅎㅎㅎㅎ -->
+	
 	
 	<select id="selectOneTeamInfo" parameterType="int" resultType="teamInfoDTO">
 		select * from team_info
